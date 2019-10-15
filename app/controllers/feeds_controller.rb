@@ -6,28 +6,27 @@ class FeedsController < ApplicationController
   end
 
   def new
-    if params[:back]
-      @feed = Feed.new(feed_params)
-    else
-      @feed = Feed.new
-    end
+    @feed = Feed.new
   end
 
   def create
     @feed = Feed.new(feed_params)
     @feed.user_id = current_user.id
-    respond_to do |format|
+    if params[:back]
+      render :new
+    else
       if @feed.save
-        format.html { redirect_to @feed, notice: 'Feed was successfully created.' }
-        format.json { render :show, status: :created, location: @feed }
+        redirect_to feeds_path, notice:"feedを作成しました！"
       else
-        format.html { render :new }
-        format.json { render json: @feed.errors, status: :unprocessable_entity }
+        render :new
       end
     end
   end
 
   def show
+  end
+
+  def edit
   end
 
   def confirm
@@ -36,27 +35,17 @@ class FeedsController < ApplicationController
     render :new if @feed.invalid?
   end
 
-  def edit
-  end
-
   def update
-    respond_to do |format|
-      if @feed.update(feed_params)
-        format.html { redirect_to @feed, notice: 'Feed was successfully updated.' }
-        format.json { render :show, status: :ok, location: @feed }
-      else
-        format.html { render :edit }
-        format.json { render json: @feed.errors, status: :unprocessable_entity }
-      end
+    if @feed.update(feed_params)
+      redirect_to feeds_path, notice:"feedを編集しました！"
+    else
+      render :edit
     end
   end
 
   def destroy
     @feed.destroy
-    respond_to do |format|
-      format.html { redirect_to feeds_url, notice: 'Feed was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to feeds_path, notice:"feedを削除しました！"
   end
 
   private
