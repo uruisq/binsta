@@ -1,14 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div  class="fullheight" style="background-image:url(/images/show_image.png)" />
 
-<p>
-  <strong>Title:</strong>
-  <%= @feed.title %>
-</p>
+  <h1>Showing Feed</h1>
 
-<p>
-  <strong>Image:</strong>
-  <%= @feed.image %>
-</p>
+    <p>投稿者：<%= @feed.user.name %></p>
+    <p>タイトル：<%= @feed.title %></p>
+    <p>内容：<%= @feed.content %></p>
+    <p>画像：<div><%= link_to image_tag(@feed.image.thumb.url), @feed.image.url %></div></p>
 
-<%= link_to 'Edit', edit_feed_path(@feed) %> |
-<%= link_to 'Back', feeds_path %>
+  <%= link_to 'Edit', edit_feed_path(@feed) %> |
+  <%= link_to 'Back', feeds_path %>
+
+</div>

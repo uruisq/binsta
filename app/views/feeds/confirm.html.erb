@@ -1,0 +1,27 @@
+<div  class="fullheight" style="background-image:url(/images/confirm_image.png)" />
+
+  <font color="white">
+  <h1>確認画面</h1>
+  <%= form_with(model: @feed, url: feeds_path, local: true) do |form| %>
+
+    <%= form.hidden_field :user %>
+    <%= form.hidden_field :title %>
+    <%= form.hidden_field :content %>
+    <%= form.hidden_field :image_cache %>
+
+    <p>投稿者：<%= @feed.user.name %></p>
+    <p>タイトル：<%= @feed.title %></p>
+    <p>本文：<%= @feed.content %></p>
+    <p>画像：<%= image_tag(@feed.image.url(:thumb)) if @feed.image && @feed.image.url %></p>
+    <br>
+    <%= form.submit "登録する" %>
+    <br>
+  <% end %>
+
+  <%= form_with(model:@feed, url:new_feed_path, local:true, method:"get") do |form| %>
+    <%= form.hidden_field :image_cache %>
+    <%= form.submit "戻る", name: "back" %>
+  <% end %>
+  </font>
+
+</div>

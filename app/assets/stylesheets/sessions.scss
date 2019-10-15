@@ -1,0 +1,167 @@
+@charset "UTF-8";
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background: #7da9d4;
+}
+
+.fullheight {
+    height: 100%;
+    padding: 50px;
+}
+
+footer {
+    background: #7da9d4;
+    text-align: right;
+    color: white;
+}
+
+/* facebook風 */
+.fb_container {
+  padding: 0;
+  background: #ffffff;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 20px auto;
+  font-size: 90%;
+  border: solid 1px #eeeeee;
+}
+
+.fb_container a {
+  color: #58aeed;
+}
+
+/* タイトル部分 */
+.fb_container .fb_title {
+  background: #58aeed;
+  padding: 10px;
+  text-align: center;
+  font-size: 150%;
+  color: #ffffff;
+}
+
+.fb_container .fb_title .fb-logo {
+  margin: 0 auto;
+  width: 30px;
+  height: 30px;
+  display: block;
+  border-radius: 10px 10px 10px 10px;
+  background: url(image-path("/images/fb-logo.png")) center no-repeat;
+}
+
+.fb_container .fb_title span {
+  font-size: 20px;
+}
+
+/* タイムライン部分 */
+.fb_container .fb_contents {
+  overflow: hidden;
+  position: relative;
+  line-height: 135%;
+  hight: 60%;
+}
+
+.fb_container .fb_contents.scroll {
+  height: 570px;
+  overflow-y: scroll;
+}
+
+.fb_container .fb_block {
+  width: 100%;
+  display: block;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-bottom: solid 1px #eeeeee;
+  overflow: hidden;
+}
+
+.fb_container .fb_block:last-child {
+  border-bottom: solid 0px;
+}
+/* アイコン画像 */
+.fb_container .fb_block figure {
+  width: 50px;
+  padding: 0;
+  margin: 0;
+  float: left;
+  width: 50px;
+}
+  /* 正方形を用意 */
+.fb_container .fb_block figure img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+/* コメントエリア */
+.fb_container ._block-text {
+  margin: 0;
+  position: relative;
+  margin-left: 60px;
+  padding-right: 10px;
+}
+
+.fb_container .fb_block-text .name {
+  float: left;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.fb_container .fb_block-text .name .name_reply {
+  color: #8a9aa4;
+  margin-left: 10px;
+}
+
+.fb_container .fb_block-text .date {
+  position: relative;
+  top: 0;
+  right: 20px;
+  text-align: right;
+  color: #8a9aa4;
+}
+/* 本文 */
+.fb_container .fb_block-text .text {
+  margin-left: 45px;
+  padding: 15px;
+}
+
+/* 埋め込みアイコン */
+.fb_container .fb_icon br{
+  display: none;
+}
+
+.fb_container .fb_icon .fb-indi {
+  width: 14px;
+  height: 14px;
+  display: block;
+  padding-left: 20px;
+  background: url("/images/fb-indi.svg") left no-repeat;
+  width: 5%;
+  float: right;
+  color: #8a9aa4;
+}
+
+.fb_container .fb_icon .fb-edit {
+  width: 14px;
+  height: 14px;
+  display: block;
+  padding-left: 20px;
+  background: url("/images/fb-edit.svg") left no-repeat;
+  width: 5%;
+  float: right;
+  color: #8a9aa4;
+}
+
+.fb_container .fb_icon .fb-delete {
+  width: 14px;
+  height: 14px;
+  display: block;
+  padding-left: 20px;
+  background: url("/images/fb-delete.svg") left no-repeat;
+  width: 5%;
+  float: right;
+  color: #8a9aa4;
+}

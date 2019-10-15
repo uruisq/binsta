@@ -1,29 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="fb_container">
 
-<h1>Feeds</h1>
+<!-- タイトル -->
+  <div class="fb_title">
+    <%= link_to("", new_feed_path, {class: "fb-logo"}) %>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @feeds.each do |feed| %>
-      <tr>
-        <td><%= feed.title %></td>
-        <td><%= feed.image %></td>
-        <td><%= link_to 'Show', feed %></td>
-        <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
-        <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Feed', new_feed_path %>
+<!-- タイムライン -->
+  <div class="fb_contents scroll">
+    <% @feeds.reverse.each do |feed| %>
+    <div class="fb_block">
+      <figure>
+        <%= image_tag "/icon/#{feed.user_id}.svg" %>
+      </figure>
+      <div class="fb_block-text">
+        <div class="name"><td><%= feed.user.name %></td>
+        </div>
+        <div class="date"><%= time_ago_in_words(feed.updated_at) %>
+        </div>
+        <div class="text"><font size="3"><%= feed.title %></font><br><br><%= feed.content %>
+        </div>
+        <div class="text"><%= link_to image_tag(feed.image.thumb.url), feed.image.url %>
+        </div>
+        <div class="fb_icon">
+          <%= link_to("", feed_path(feed.id), method: :delete, class: "fb-delete", data: { confirm: '本当に削除していいですか？' }) %>
+          <%= link_to("", edit_feed_path(feed.id), class: "fb-edit", data:{ confirm: '本当に編集していいですか？' }) %>
+          <%= link_to("", feed_path(feed.id), {class: "fb-indi"}) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
