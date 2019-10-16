@@ -20,8 +20,8 @@ footer {
     color: white;
 }
 
-/* facebook風 */
-.fb_container {
+/* insta風 */
+.binsta_container {
   padding: 0;
   background: #ffffff;
   overflow: hidden;
@@ -31,12 +31,12 @@ footer {
   border: solid 1px #eeeeee;
 }
 
-.fb_container a {
+.binsta_container a {
   color: #58aeed;
 }
 
 /* タイトル部分 */
-.fb_container .fb_title {
+.binsta_container .binsta_title {
   background: #58aeed;
   padding: 10px;
   text-align: center;
@@ -44,33 +44,33 @@ footer {
   color: #ffffff;
 }
 
-.fb_container .fb_title .fb-logo {
+.binsta_container .binsta_title .binsta-logo {
   margin: 0 auto;
   width: 30px;
   height: 30px;
   display: block;
   border-radius: 10px 10px 10px 10px;
-  background: url(image-path("/images/fb-logo.png")) center no-repeat;
+  background: url(image-path("/images/binsta-logo.png")) center no-repeat;
 }
 
-.fb_container .fb_title span {
+.binsta_container .binsta_title span {
   font-size: 20px;
 }
 
 /* タイムライン部分 */
-.fb_container .fb_contents {
+.binsta_container .binsta_contents {
   overflow: hidden;
   position: relative;
   line-height: 135%;
   hight: 60%;
 }
 
-.fb_container .fb_contents.scroll {
+.binsta_container .binsta_contents.scroll {
   height: 570px;
   overflow-y: scroll;
 }
 
-.fb_container .fb_block {
+.binsta_container .binsta_block {
   width: 100%;
   display: block;
   padding: 10px;
@@ -79,11 +79,11 @@ footer {
   overflow: hidden;
 }
 
-.fb_container .fb_block:last-child {
+.binsta_container .binsta_block:last-child {
   border-bottom: solid 0px;
 }
 /* アイコン画像 */
-.fb_container .fb_block figure {
+.binsta_container .binsta_block figure {
   width: 50px;
   padding: 0;
   margin: 0;
@@ -91,31 +91,31 @@ footer {
   width: 50px;
 }
   /* 正方形を用意 */
-.fb_container .fb_block figure img {
+.binsta_container .binsta_block figure img {
   border-radius: 50%;
   width: 50px;
   height: 50px;
 }
 /* コメントエリア */
-.fb_container ._block-text {
+.binsta_container ._block-text {
   margin: 0;
   position: relative;
   margin-left: 60px;
   padding-right: 10px;
 }
 
-.fb_container .fb_block-text .name {
+.binsta_container .binsta_block-text .name {
   float: left;
   font-weight: bold;
   margin-left: 10px;
 }
 
-.fb_container .fb_block-text .name .name_reply {
+.binsta_container .binsta_block-text .name .name_reply {
   color: #8a9aa4;
   margin-left: 10px;
 }
 
-.fb_container .fb_block-text .date {
+.binsta_container .binsta_block-text .date {
   position: relative;
   top: 0;
   right: 20px;
@@ -123,44 +123,44 @@ footer {
   color: #8a9aa4;
 }
 /* 本文 */
-.fb_container .fb_block-text .text {
+.binsta_container .binsta_block-text .text {
   margin-left: 45px;
   padding: 15px;
 }
 
 /* 埋め込みアイコン */
-.fb_container .fb_icon br{
+.binsta_container .binsta_icon br{
   display: none;
 }
 
-.fb_container .fb_icon .fb-indi {
+.binsta_container .binsta_icon .binsta-indi {
   width: 14px;
   height: 14px;
   display: block;
   padding-left: 20px;
-  background: url("/images/fb-indi.svg") left no-repeat;
+  background: url("/images/binsta-indi.svg") left no-repeat;
   width: 5%;
   float: right;
   color: #8a9aa4;
 }
 
-.fb_container .fb_icon .fb-edit {
+.binsta_container .binsta_icon .binsta-edit {
   width: 14px;
   height: 14px;
   display: block;
   padding-left: 20px;
-  background: url("/images/fb-edit.svg") left no-repeat;
+  background: url("/images/binsta-edit.svg") left no-repeat;
   width: 5%;
   float: right;
   color: #8a9aa4;
 }
 
-.fb_container .fb_icon .fb-delete {
+.binsta_container .binsta_icon .binsta-delete {
   width: 14px;
   height: 14px;
   display: block;
   padding-left: 20px;
-  background: url("/images/fb-delete.svg") left no-repeat;
+  background: url("/images/binsta-delete.svg") left no-repeat;
   width: 5%;
   float: right;
   color: #8a9aa4;

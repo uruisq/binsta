@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
   before_action :logged_in_user
 
   def create
-    @feed = Feed.find(params[:micropost_id])
+    @feed = Feed.find(params[:feed_id])
     unless @feed.iine?(current_user)
       @feed.iine(current_user)
       @feed.reload

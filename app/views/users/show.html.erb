@@ -1,6 +1,6 @@
 <div  class="fullheight" style="background-image:url(/images/user_image.png)" />
   <h1><%= @user.name %>のページ</h1>
-  
+  <%= image_tag @user.icon.to_s, height: 300 %>
   <p>メールアドレス: <%= @user.email %></p>
   <% if logged_in? %>
     <p><%= link_to "feed", feeds_path %>をしてください</p>
