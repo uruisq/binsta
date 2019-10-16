@@ -10,7 +10,7 @@
     <% @feeds.reverse.each do |feed| %>
     <div class="fb_block">
       <figure>
-        <%= image_tag "/icon/#{feed.user_id}.svg" %>
+        <%= image_tag(user.icon.url), height:300 %>
       </figure>
       <div class="fb_block-text">
         <div class="name"><td><%= feed.user.name %></td>

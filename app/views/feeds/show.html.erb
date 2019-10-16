@@ -2,6 +2,7 @@
 
   <h1>Showing Feed</h1>
 
+    <%= image_tag(user.icon.url), height:300 %>
     <p>投稿者：<%= @feed.user.name %></p>
     <p>タイトル：<%= @feed.title %></p>
     <p>内容：<%= @feed.content %></p>
