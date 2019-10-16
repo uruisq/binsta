@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     collection do
       post :confirm
     end
+    post 'add' => 'favorites#create'
+    delete '/add' => 'favorites#destroy'
   end
   resources :users, only: [:new, :create, :show]
   resources :sessions
