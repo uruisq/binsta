@@ -1,22 +1,27 @@
 class FavoritesController < ApplicationController
+  before_action :logged_in_user
+
   def create
-    user=current_user
-    feed=feed.find(params[:feed_id])
-    if Favorite.create(user_id: user.id,feed_id:feed.id)
-      redirect_to feed
-    else
-      redirect_to root_url
+    @feed = Feed.find(params[:micropost_id])
+    unless @feed.iine?(current_user)
+      @feed.iine(current_user)
+      @feed.reload
+      respond_to do |format|
+        format.html { redirect_to request.referrer || root_url }
+        format.js
+      end
     end
   end
-    
+
   def destroy
-    user=current_user
-    feed=feed.find(params[:feed_id])
-    if favorite=Favorite.find_by(user_id: user.id,feed_id:feed.id)
-      favorite.delete
-      redirect_to users_path(current_user)
-    else
-      redirect_to root_url
+    @feed = Favotite.find(params[:id]).feed
+    if @feed.iine?(current_user)
+      @feed.uniine(current_user)
+      @feed.reload
+      respond_to do |format|
+        format.html { redirect_to request.referrer || root_url }
+        format.js
+      end
     end
   end
 end

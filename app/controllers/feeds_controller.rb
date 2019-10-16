@@ -16,6 +16,7 @@ class FeedsController < ApplicationController
       render :new
     else
       if @feed.save
+        NotificationMailer.send_confirm_to_user(@user).deliver_later
         redirect_to feeds_path, notice:"feedを作成しました！"
       else
         render :new
@@ -37,6 +38,7 @@ class FeedsController < ApplicationController
 
   def update
     if @feed.update(feed_params)
+      NotificationMailer.send_confirm_to_user(@user).deliver_later
       redirect_to feeds_path, notice:"feedを編集しました！"
     else
       render :edit

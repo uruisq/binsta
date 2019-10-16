@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(version: 2019_10_16_013022) do
+ActiveRecord::Schema.define(version: 2019_10_16_044054) do
 
   enable_extension "plpgsql"
 
@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2019_10_16_013022) do
     t.text "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "favorites_count", default: 0, null: false
     t.index ["user_id"], name: "index_feeds_on_user_id"
   end
 

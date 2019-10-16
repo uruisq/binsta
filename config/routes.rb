@@ -3,11 +3,10 @@ Rails.application.routes.draw do
     collection do
       post :confirm
     end
-    post 'add' => 'favorites#create'
-    delete '/add' => 'favorites#destroy'
   end
   resources :users, only: [:new, :create, :show]
   resources :sessions
+  resources :favorites, only: [:create, :destroy]
   root to: 'users#new'
   get '*path', to: 'application#error_404'
 end
