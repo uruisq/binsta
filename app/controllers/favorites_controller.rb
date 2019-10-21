@@ -1,27 +1,14 @@
 class FavoritesController < ApplicationController
-  before_action :logged_in_user
 
   def create
-    @feed = Feed.find(params[:feed_id])
-    unless @feed.iine?(current_user)
-      @feed.iine(current_user)
-      @feed.reload
-      respond_to do |format|
-        format.html { redirect_to request.referrer || root_url }
-        format.js
-      end
-    end
+    favorite = current_user.favorites.build(feed_id: params[:feed_id])
+    favorite.save
+    redirect_to feeds_path
   end
 
   def destroy
-    @feed = Favotite.find(params[:id]).feed
-    if @feed.iine?(current_user)
-      @feed.uniine(current_user)
-      @feed.reload
-      respond_to do |format|
-        format.html { redirect_to request.referrer || root_url }
-        format.js
-      end
-    end
+    favorite = Favorite.find_by(feed_id: params[:feed_id], user_id: current_user.id)
+    favorite.destroy
+    redirect_to feeds_path
   end
 end

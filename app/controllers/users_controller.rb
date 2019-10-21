@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
+
+  
   def new
     @user = User.new
   end
@@ -29,6 +31,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @feeds = @user.feeds
+    @favorite_feeds = @user.favorite_feeds
   end
 
   def edit

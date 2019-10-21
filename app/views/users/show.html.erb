@@ -7,6 +7,16 @@
     <p><%= link_to 'ユーザー情報の編集', edit_user_path %></p>
   <% end %>
 
+  <% @feeds.each do |feed| %>
+    <hr>
+    <p><span>feed内容: </span><%=link_to feed.content, feed_path(feed.id) %></p>
+  <% end %>
+
+  <% @favorite_feeds.each do |feed| %>
+    <hr>
+    <p><span>fav内容: </span><%=link_to feed.content, feed_path(feed.id) %></p>
+  <% end %>
+
   <% if logged_in? %>
     <p><%= link_to "feed", feeds_path %>をしてください</p>
     <% else %>

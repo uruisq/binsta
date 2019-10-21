@@ -28,7 +28,14 @@
           <% end %>
           <%= link_to("", feed_path(feed.id), {class: "binsta-indi"}) %>
 
-          <%= render "favorites/favorite", feed: feed %>
+          <% if feed.favorited_by?(current_user) %>
+          <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
+          <p><span>お気に入り解除: </span>
+          <%=link_to feed.favorites.count, feed_favorites_path(feed.id), method: :delete %></p>
+          <% else %>
+          <p><span>お気に入り登録: </span>
+          <%=link_to feed.favorites.count, feed_favorites_path(feed.id), method: :post %></p>
+          <% end %>
 
         </div>
       </div>
