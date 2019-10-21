@@ -4,11 +4,7 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  resources :users do
-    collection do
-      post :confirm
-    end
-  end
+  resources :users
   resources :sessions
   resources :favorites, only: [:create, :destroy]
   root to: 'users#new'

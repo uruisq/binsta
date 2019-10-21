@@ -6,28 +6,27 @@ class FeedsController < ApplicationController
   end
 
   def new
-    @feed = Feed.new
+    if params[:back]
+      @feed = Feed.new(feed_params)
+    else
+      @feed = Feed.new
+    end
   end
 
   def create
     @feed = Feed.new(feed_params)
     @feed.user_id = current_user.id
-    if params[:back]
-      render :new
-    else
+    respond_to do |format|
       if @feed.save
-        NotificationMailer.send_confirm_to_user(@user).deliver_later
-        redirect_to feeds_path, notice:"feedを作成しました！"
+        format.html { redirect_to @feed, notice: 'Feedしました' }
       else
-        render :new
+        format.html { render :new }
       end
     end
   end
 
   def show
-  end
-
-  def edit
+    @user = User.find(params[:id])
   end
 
   def confirm
@@ -36,18 +35,24 @@ class FeedsController < ApplicationController
     render :new if @feed.invalid?
   end
 
+  def edit
+  end
+
   def update
-    if @feed.update(feed_params)
-      NotificationMailer.send_confirm_to_user(@user).deliver_later
-      redirect_to feeds_path, notice:"feedを編集しました！"
-    else
-      render :edit
+    respond_to do |format|
+      if @feed.update(feed_params)
+        format.html { redirect_to @feed, notice: 'Feedを編集しました' }
+      else
+      format.html { render :edit }
+      end
     end
   end
 
   def destroy
     @feed.destroy
-    redirect_to feeds_path, notice:"feedを削除しました！"
+    respond_to do |format|
+      format.html { redirect_to feeds_url, notice: 'Feedを削除しました' }
+    end
   end
 
   private

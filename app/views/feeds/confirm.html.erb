@@ -12,7 +12,7 @@
     <p>投稿者：<%= @feed.user.name %></p>
     <p>タイトル：<%= @feed.title %></p>
     <p>本文：<%= @feed.content %></p>
-    <p>画像：<%= image_tag(@feed.image.url(:thumb)) if @feed.image && @feed.image.url %></p>
+    <p>画像：<%= image_tag(@feed.image.url, height: 200 ) if @feed.image && @feed.image.url %></p>
     <br>
     <%= form.submit "登録する" %>
     <br>

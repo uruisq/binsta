@@ -2,7 +2,7 @@
 
 <!-- タイトル -->
   <div class="binsta_title">
-    <%= link_to("", new_feed_path, {class: "binsta-logob"}) %>
+    <%= link_to("", new_feed_path, {class: "binsta-logo"}) %>
   </div>
 
 <!-- タイムライン -->
@@ -10,7 +10,7 @@
     <% @feeds.reverse.each do |feed| %>
     <div class="binsta_block">
       <figure>
-        <%= image_tag user.icon.to_s, height: 300 %>
+      <%= image_tag feed.user.icon.to_s, height: 100 %>
       </figure>
       <div class="binsta_block-text">
         <div class="name"><td><%= feed.user.name %></td>
@@ -19,14 +19,16 @@
         </div>
         <div class="text"><font size="3"><%= feed.title %></font><br><br><%= feed.content %>
         </div>
-        <div class="text"><%= link_to image_tag(feed.image.thumb.url), feed.image.url %>
+        <div class="text"><%= link_to image_tag(feed.image.url, height:100 ), feed.image.url %>
         </div>
         <div class="binsta_icon">
+          <% if current_user == feed.user %>
           <%= link_to("", feed_path(feed.id), method: :delete, class: "binsta-delete", data: { confirm: '本当に削除していいですか？' }) %>
           <%= link_to("", edit_feed_path(feed.id), class: "binsta-edit", data:{ confirm: '本当に編集していいですか？' }) %>
+          <% end %>
           <%= link_to("", feed_path(feed.id), {class: "binsta-indi"}) %>
 
-          <%= render "likes/like", feed: feed %>
+          <%= render "favorites/favorite", feed: feed %>
 
         </div>
       </div>

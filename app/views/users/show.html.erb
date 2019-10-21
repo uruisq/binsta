@@ -1,10 +1,16 @@
 <div  class="fullheight" style="background-image:url(/images/user_image.png)" />
   <h1><%= @user.name %>のページ</h1>
-  <%= image_tag @user.icon.to_s, height: 300 %>
+  <%= image_tag @user.icon.to_s, height: 100 %>
   <p>メールアドレス: <%= @user.email %></p>
+
+  <% if current_user?(@user) %>
+    <p><%= link_to 'ユーザー情報の編集', edit_user_path %></p>
+  <% end %>
+
   <% if logged_in? %>
     <p><%= link_to "feed", feeds_path %>をしてください</p>
     <% else %>
     <p><%= link_to "ログイン", new_session_path %>をしてください</p>
   <% end %>
+
 </div>

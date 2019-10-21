@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Binsta</title>
+    <title>Bingsta</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -22,10 +22,10 @@
       <%= link_to "Login", new_session_path %>
     <% end %>
 
-  <br><img src="/images/logob.png" height="50" align="right" >
-
-  <%= yield %>
-</body>
+    <br><a href="/feeds"><img src="/images/logob.png" height="50" align="right" ></a>
+    <%= yield %>
+    
+  </body>
 
 <footer class="footer">
 copyright ©️ 2019 bindyne INC ALL RESERVED.　　</footer>
