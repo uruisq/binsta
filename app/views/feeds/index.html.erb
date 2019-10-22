@@ -22,19 +22,23 @@
         <div class="text"><%= link_to image_tag(feed.image.url, height:100 ), feed.image.url %>
         </div>
         <div class="binsta_icon">
+
           <% if current_user == feed.user %>
-          <%= link_to("", feed_path(feed.id), method: :delete, class: "binsta-delete", data: { confirm: '本当に削除していいですか？' }) %>
-          <%= link_to("", edit_feed_path(feed.id), class: "binsta-edit", data:{ confirm: '本当に編集していいですか？' }) %>
+            <%= link_to("", feed_path(feed.id), method: :delete, class: "binsta-delete", data: { confirm: '本当に削除していいですか？' }) %>
+            <%= link_to("", edit_feed_path(feed.id), class: "binsta-edit", data:{ confirm: '本当に編集していいですか？' }) %>
           <% end %>
           <%= link_to("", feed_path(feed.id), {class: "binsta-indi"}) %>
 
-          <% if feed.favorited_by?(current_user) %>
-          <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
-          <p><span>お気に入り解除: </span>
-          <%=link_to feed.favorites.count, feed_favorites_path(feed.id), method: :delete %></p>
-          <% else %>
-          <p><span>お気に入り登録: </span>
-          <%=link_to feed.favorites.count, feed_favorites_path(feed.id), method: :post %></p>
+          <% if current_user != feed.user %>
+            <% if feed.favorited_by?(current_user) %>
+              <p><span>お気に入り解除: </span>
+              <%=link_to feed.favorites.count, feed_favorites_path(feed.id), method: :delete %></p>
+            <% else %>
+              <p><span>お気に入り登録: </span>
+              <%=link_to feed.favorites.count, feed_favorites_path(feed.id), method: :post %></p>
+            <% end %>
+            <% else %>
+            <p><span>お気に入り: <%= feed.favorites.count %></span></p>
           <% end %>
 
         </div>
