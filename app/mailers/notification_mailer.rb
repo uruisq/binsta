@@ -1,11 +1,11 @@
 class NotificationMailer < ApplicationMailer
   default from: "hogehoge@example.com"
 
-  def send_confirm_to_user(user)
-    @user = user
+  def sendmail_feed(feed)
+    @feed = feed
     mail(
-      subject: "会員登録が完了しました。", #メールのタイトル
-      to: @user.email #宛先
+      subject: "投稿が完了しました。", #メールのタイトル
+      to: @feed.user.email #宛先
     ) do |format|
       format.text
     end

@@ -1,14 +1,14 @@
-<div  class="fullheight" style="background-image:url(/images/show_image.png)" />
+<div  class="fullheight" style="background-image:url(/images/bingsta_show.png)" />
 
   <h1>Showing Feed</h1>
 
-    <%= image_tag @user.icon.to_s, height: 100 %>
+    <%= image_tag @feed.user.icon.to_s, height: 100 %>
     <p>投稿者：<%= @feed.user.name %></p>
     <p>タイトル：<%= @feed.title %></p>
     <p>内容：<%= @feed.content %></p>
     <p>画像：<div><%= link_to image_tag(@feed.image.url, height: 200) , @feed.image.url %></div></p>
 
-  <% if current_user?(@user)  %><%= link_to 'Edit', edit_feed_path(@feed) %> | <% end %>
+  <% if current_user?(@feed.user)  %><%= link_to 'Edit', edit_feed_path(@feed) %> | <% end %>
   <%= link_to 'Back', feeds_path %>
 
 </div>

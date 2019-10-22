@@ -1,5 +1,8 @@
-<%= @user.name %> 様
+<h1>新しくブログが投稿されました！</h1>
 
-binstaへの投稿が完了しました。
-マイページはこちら
-<%= user_url(@user) %>
+<h4>title: <%= @feed.title %></h4>
+<p>content: <%= @feed.content %></p>
+
+<p>
+  <%= link_to '投稿されたfeedはこちら', feeds_url %>
+</p>
