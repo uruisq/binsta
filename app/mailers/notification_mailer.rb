@@ -3,11 +3,7 @@ class NotificationMailer < ApplicationMailer
 
   def sendmail_feed(feed)
     @feed = feed
-    mail(
-      subject: "投稿が完了しました。", #メールのタイトル
-      to: @feed.user.email #宛先
-    ) do |format|
-      format.text
-    end
+    mail to: "@feed.user.email",
+      subject: "投稿が完了しました。"
   end
 end
