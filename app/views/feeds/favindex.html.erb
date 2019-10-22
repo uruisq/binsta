@@ -16,7 +16,11 @@
   </p>
 
   <hr>
-  <%= link_to 'fav一覧', favindex_user_path %>
+  <p><span>fav内容: </span>
+    <% @favorite_feeds.each do |feed| %>
+      <%=link_to image_tag(feed.image.url, height:100 ), feed_path(feed.id) %>
+    <% end %>
+  </p>
 
   <hr>
   <% if logged_in? %>

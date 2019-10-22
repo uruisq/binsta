@@ -1,6 +1,6 @@
 class FeedsController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
-  before_action :set_feed, only: [:show, :edit, :update, :destroy]
+  before_action :set_feed, only: [:show, :favindex, :edit, :update, :destroy]
 
   def index
     @feeds = Feed.all
@@ -19,7 +19,7 @@ class FeedsController < ApplicationController
     @feed.user_id = current_user.id
     respond_to do |format|
       if @feed.save
-        format.html { redirect_to @feed, notice: 'Feedしました' }
+        format.html { redirect_to feeds_url, notice: 'Feedしました' }
       else
         format.html { render :new }
       end
@@ -42,7 +42,7 @@ class FeedsController < ApplicationController
   def update
     respond_to do |format|
       if @feed.update(feed_params)
-      format.html { redirect_to @feed, notice: 'Feedを編集しました' }
+      format.html { redirect_to feeds_url, notice: 'Feedを編集しました' }
       else
       format.html { render :edit }
       end

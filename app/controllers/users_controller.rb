@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:favindex, :show, :edit, :update]
+
+  def favindex
+    @feeds = @user.feeds
+    @favorite_feeds = @user.favorite_feeds
+  end
 
   def new
     @user = User.new

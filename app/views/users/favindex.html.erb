@@ -1,0 +1,12 @@
+<div  class="fullheight" style="background-image:url(/images/user_image.png)" />
+  <h1><%= @user.name %>のfav一覧ページ</h1>
+  <%= image_tag @user.icon.to_s, height: 100 %>
+
+  <hr>
+  <p>
+    <% @favorite_feeds.each do |feed| %>
+      <%=link_to image_tag(feed.image.url, height:100 ), feed_path(feed.id) %>
+    <% end %>
+  </p>
+
+</div>
