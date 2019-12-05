@@ -19,7 +19,7 @@ gem 'mini_magick'
 gem 'faker'
 gem 'fog-aws'
 gem 'dotenv-rails'
-gem 'unicorn'
+gem 'unicorn', '5.4.1'
 gem 'mini_racer', platforms: :ruby
 
 gem 'bootsnap', '>= 1.1.0', require: false
