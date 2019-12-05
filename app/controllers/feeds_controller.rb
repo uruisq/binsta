@@ -20,7 +20,6 @@ class FeedsController < ApplicationController
     respond_to do |format|
       if @feed.save
         format.html { redirect_to feeds_url, notice: 'Feedしました' }
-        NotificationMailer.sendmail_feed(@feed).deliver
       else
         format.html { render :new }
       end
